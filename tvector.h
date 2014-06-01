@@ -35,14 +35,13 @@ public:
         Type Length = sqrt( x*x + y*y + z*z + t*t );
         return Length;
     }
-    tVector Normilize()
+    void Normilize()
     {
         Type L = this->GetLength();
         x /= L;
         y /= L;
         z /= L;
         t /= L;
-        return this;
     }
 
     tVector operator+ (tVector & vec) const
@@ -73,30 +72,6 @@ public:
         return (sx + sy + sz + st);
     }
 
-    tVector operator*= (Type & scale)
-    {
-        x *= scale;
-        y *= scale;
-        z *= scale;
-        t *= scale;
-        return this;
-    }
-    tVector operator+= (const tVector & vec)
-    {
-        x += vec.x;
-        y += vec.y;
-        z += vec.z;
-        t += vec.t;
-        return this;
-    }
-    tVector operator-= (const tVector & vec)
-    {
-        x -= vec.x;
-        y -= vec.y;
-        z -= vec.z;
-        t -= vec.t;
-        return this;
-    }
     friend std::ostream & operator<< (std::ostream & os, const tVector &vecc )
     {
         os << vecc.x << ":"<< vecc.y << ":" << vecc.z << ":"<< vecc.t << std::endl;
